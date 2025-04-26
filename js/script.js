@@ -1,3 +1,4 @@
+<script>
 window.addEventListener('scroll', function() {
   const sections = document.querySelectorAll('section');
   sections.forEach(section => {
@@ -42,14 +43,25 @@ function showStep(step) {
       <ul>
         ${missingSkills.length ? missingSkills.map(skill => `<li>${skill}</li>`).join('') : '<li>No major gaps detected. Keep sharpening your skills!</li>'}
       </ul>
-      <div style="margin-top:2rem;padding:1.5rem;background:linear-gradient(135deg,#81c784,#4caf50);color:white;border-radius:20px;text-align:center;font-size:1.3rem;animation: popFade 1s ease forwards;">
-        🎯 A Custom Career Path Has Been Built For You!
+      <div style="margin-top:2rem; text-align:center;">
+        <button onclick="showStep('step3')" style="
+          background: linear-gradient(135deg, #43cea2, #185a9d);
+          border: none;
+          padding: 1rem 2rem;
+          font-size: 1.1rem;
+          color: white;
+          border-radius: 50px;
+          cursor: pointer;
+          transition: all 0.4s ease;
+          animation: popFade 1s ease forwards;
+          box-shadow: 0 0 15px rgba(67, 206, 162, 0.6);
+        " 
+        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 25px rgba(67, 206, 162, 0.9)';"
+        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 15px rgba(67, 206, 162, 0.6)';">
+          🎯 Here is your customized career path built specifically for you
+        </button>
       </div>
     `;
   }
 }
-
-      </ul>
-    `;
-  }
-}
+</script>
