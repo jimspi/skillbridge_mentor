@@ -14,6 +14,7 @@ function showStep(step) {
   document.getElementById(step).classList.add('show');
 
   if (step === 'step2') {
+    const currentRole = document.getElementById('currentRole').value;
     const dreamCareer = document.getElementById('dreamCareer').value;
     const skillsInput = document.getElementById('skills').value;
     const currentSkills = skillsInput.split(',').map(skill => skill.trim().toLowerCase());
@@ -40,6 +41,14 @@ function showStep(step) {
       <h4>Suggested Skills to Learn:</h4>
       <ul>
         ${missingSkills.length ? missingSkills.map(skill => `<li>${skill}</li>`).join('') : '<li>No major gaps detected. Keep sharpening your skills!</li>'}
+      </ul>
+      <div style="margin-top:2rem;padding:1.5rem;background:linear-gradient(135deg,#81c784,#4caf50);color:white;border-radius:20px;text-align:center;font-size:1.3rem;animation: popFade 1s ease forwards;">
+        🎯 A Custom Career Path Has Been Built For You!
+      </div>
+    `;
+  }
+}
+
       </ul>
     `;
   }
