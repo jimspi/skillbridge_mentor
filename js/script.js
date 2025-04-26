@@ -12,12 +12,15 @@ window.addEventListener('scroll', function() {
 function showStep(step) {
   const steps = document.querySelectorAll('.how-step');
   steps.forEach(s => s.classList.remove('show'));
-  document.getElementById(step).classList.add('show');
+  const currentStep = document.getElementById(step);
+  if (currentStep) {
+    currentStep.classList.add('show');
+  }
 
   if (step === 'step2') {
-    const currentRole = document.getElementById('currentRole').value;
-    const dreamCareer = document.getElementById('dreamCareer').value;
-    const skillsInput = document.getElementById('skills').value;
+    const currentRole = document.getElementById('currentRole')?.value || '';
+    const dreamCareer = document.getElementById('dreamCareer')?.value || '';
+    const skillsInput = document.getElementById('skills')?.value || '';
     const currentSkills = skillsInput.split(',').map(skill => skill.trim().toLowerCase());
 
     const suggestedSkills = {
@@ -34,8 +37,7 @@ function showStep(step) {
       missingSkills = suggestedSkills[careerKey].filter(skill => !currentSkills.includes(skill));
     }
 
-    const analysisContainer = document.getElementById('step2');
-    analysisContainer.innerHTML = `
+    const step2Content = `
       <h3>Step 2: Skill Gap Analysis</h3>
       <p>Dream Career: <strong>${dreamCareer}</strong></p>
       <p>Current Skills: <strong>${currentSkills.join(', ')}</strong></p>
@@ -52,16 +54,18 @@ function showStep(step) {
           color: white;
           border-radius: 50px;
           cursor: pointer;
-          transition: all 0.4s ease;
+          transition: all 0.3s ease;
           animation: popFade 1s ease forwards;
           box-shadow: 0 0 15px rgba(67, 206, 162, 0.6);
-        " 
+        "
         onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 25px rgba(67, 206, 162, 0.9)';"
         onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 15px rgba(67, 206, 162, 0.6)';">
           🎯 Here is your customized career path built specifically for you
         </button>
       </div>
     `;
+
+    currentStep.innerHTML = step2Content;
   }
 }
 </script>
