@@ -1,4 +1,3 @@
-<script>
 window.addEventListener('scroll', function() {
   const sections = document.querySelectorAll('section');
   sections.forEach(section => {
@@ -12,7 +11,10 @@ window.addEventListener('scroll', function() {
 function showStep(step) {
   const steps = document.querySelectorAll('.how-step');
   steps.forEach(s => s.classList.remove('show'));
-  document.getElementById(step)?.classList.add('show');
+  const currentStep = document.getElementById(step);
+  if (currentStep) {
+    currentStep.classList.add('show');
+  }
 
   if (step === 'step2') {
     const currentRole = document.getElementById('currentRole')?.value || '';
@@ -34,37 +36,32 @@ function showStep(step) {
       missingSkills = suggestedSkills[careerKey].filter(skill => !currentSkills.includes(skill));
     }
 
-    const container = document.getElementById('step2');
-    
-    // Make sure to only replace the internal content, not the step2 div itself
-    container.innerHTML = `
-      <div class="step2-content" style="padding: 1rem;">
-        <h3>Step 2: Skill Gap Analysis</h3>
-        <p>Dream Career: <strong>${dreamCareer}</strong></p>
-        <p>Current Skills: <strong>${currentSkills.join(', ')}</strong></p>
-        <h4>Suggested Skills to Learn:</h4>
-        <ul>
-          ${missingSkills.length ? missingSkills.map(skill => `<li>${skill}</li>`).join('') : '<li>No major gaps detected. Keep sharpening your skills!</li>'}
-        </ul>
-        <div style="margin-top:2rem; text-align:center;">
-          <button onclick="showStep('step3')" style="
-            background: linear-gradient(135deg, #43cea2, #185a9d);
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            color: white;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 0 15px rgba(67, 206, 162, 0.6);
-          "
-          onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 25px rgba(67, 206, 162, 0.9)';"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 15px rgba(67, 206, 162, 0.6)';">
-            🎯 Here is your customized career path built specifically for you
-          </button>
-        </div>
+    currentStep.innerHTML = `
+      <h3>Step 2: Skill Gap Analysis</h3>
+      <p>Dream Career: <strong>${dreamCareer}</strong></p>
+      <p>Current Skills: <strong>${currentSkills.join(', ')}</strong></p>
+      <h4>Suggested Skills to Learn:</h4>
+      <ul>
+        ${missingSkills.length ? missingSkills.map(skill => `<li>${skill}</li>`).join('') : '<li>No major gaps detected.</li>'}
+      </ul>
+      <div style="margin-top:2rem; text-align:center;">
+        <button onclick="showStep('step3')" style="
+          background: linear-gradient(135deg, #43cea2, #185a9d);
+          border: none;
+          padding: 1rem 2rem;
+          font-size: 1.1rem;
+          color: white;
+          border-radius: 50px;
+          cursor: pointer;
+          transition: all 0.4s;
+          box-shadow: 0 0 15px rgba(67, 206, 162, 0.6);
+        "
+        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 25px rgba(67, 206, 162, 0.9)';"
+        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 15px rgba(67, 206, 162, 0.6)';">
+          🎯 Here is your customized career path built specifically for you
+        </button>
       </div>
     `;
   }
 }
-</script>
+
