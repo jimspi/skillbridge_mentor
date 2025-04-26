@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkillBridge Mentor</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav>
+  <a href="#how-it-works">How It Works</a>
+  <a href="#features-benefits">Features</a>
+  <a href="#about">About</a>
+  <a href="#faq">FAQ</a>
+</nav>
+<header>
+  <h1>Bridge Your Skills to Your Dream Career</h1>
+  <p>Unlock your full potential with a personalized roadmap built just for YOU.</p>
+  <a href="#how-it-works" class="cta-button">Get Started</a>
+</header>
+
+<!-- Sections -->
+<section id="how-it-works">
+  <h2>How It Works</h2>
+  <div class="features">
+    <div class="feature" onclick="showStep('step1')"><h3>Input Your Info</h3><p>Share your role, career goals, and skills. We'll handle the rest.</p></div>
+    <div class="feature" onclick="showStep('step2')"><h3>Skill Gap Analysis</h3><p>We pinpoint the exact skills you need to upgrade for your dream job.</p></div>
+    <div class="feature" onclick="showStep('step3')"><h3>Follow Your Learning Path</h3><p>Get a customized growth roadmap and start building now.</p></div>
+  </div>
+  <div id="step1" class="how-step">
+    <h3>Step 1: Input Your Info</h3>
+    <form id="userInfoForm" onsubmit="event.preventDefault(); showStep('step2');">
+      <input type="text" id="currentRole" placeholder="Current Role" required><br><br>
+      <input type="text" id="dreamCareer" placeholder="Dream Career" required><br><br>
+      <input type="text" id="skills" placeholder="Skills (comma separated)" required><br><br>
+      <input type="number" id="experience" placeholder="Years of Experience" required><br><br>
+      <input type="text" id="certifications" placeholder="Certifications"><br><br>
+      <input type="text" id="location" placeholder="Location"><br><br>
+      <input type="text" id="industries" placeholder="Industries of Interest"><br><br>
+      <button type="submit" class="cta-button">Submit Info</button>
+    </form>
+  </div>
+  <div id="step2" class="how-step"></div>
+  <div id="step3" class="how-step">
+    <h3>Step 3: Follow Your Learning Path</h3>
+    <p>Access personalized growth plans curated just for you.</p>
+  </div>
+</section>
+
+<section id="features-benefits">
+  <h2>Features & Benefits</h2>
+  <div class="features">
+    <div class="feature"><h3>Custom Roadmaps</h3><p>Plans tailored around your career goals and timelines.</p></div>
+    <div class="feature"><h3>Progress Tracking</h3><p>Celebrate milestones and visualize your journey.</p></div>
+    <div class="feature"><h3>Mock Interviews</h3><p>Practice real-world scenarios and improve.</p></div>
+    <div class="feature"><h3>Resume Optimization</h3><p>Enhance your resume for top recruiters.</p></div>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About SkillBridge Mentor</h2>
+  <p style="text-align:center;max-width:700px;margin:auto;">We believe career transitions should feel empowering, not overwhelming.</p>
+</section>
+
+<section id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="features">
+    <div class="feature"><h3>How does it work?</h3><p>We map your skills to your dream job and build the path.</p></div>
+    <div class="feature"><h3>Is it private?</h3><p>Absolutely — 100% encrypted and user-owned data.</p></div>
+    <div class="feature"><h3>Why SkillBridge?</h3><p>Real action plans, no generic advice.</p></div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 SkillBridge Mentor — Built for dreamers, doers, and difference-makers.</p>
+</footer>
+<script src="js/script.js" defer></script>
+</body>
+</html>
